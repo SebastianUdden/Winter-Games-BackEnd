@@ -1,0 +1,19 @@
+{
+  "name": "winter-games-backend",
+  "version": "1.0.0",
+  "description": "The express and node.js API used for communication between MongoDB and the Angular client (Winter-Games)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianUdden/Winter-Games-BackEnd.git"
+  },
+  "author": "Sebastian Udden <sebastian.udden@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebastianUdden/Winter-Games-BackEnd/issues"
+  },
+  "homepage": "https://github.com/SebastianUdden/Winter-Games-BackEnd#readme"
+}
