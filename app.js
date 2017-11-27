@@ -91,7 +91,7 @@ app.post('/users', function(req, res) {
 });
 
 app.put('/users/:id', function(req, res) {
-    User.findOneAndUpdate({ id: req.params.id },  req.body, {new: true}, function(err, user) {
+    User.findOneAndUpdate({ id: req.params.id }, { $set: req.body }, {new: true}, function(err, user) {
         if (err) { res.send(err); }
         res.json(user);
         console.log(user);
