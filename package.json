@@ -4,6 +4,7 @@
   "description": "The express and node.js API used for communication between MongoDB and the Angular client (Winter-Games)",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/SebastianUdden/Winter-Games-BackEnd/issues"
   },
-  "homepage": "https://github.com/SebastianUdden/Winter-Games-BackEnd#readme"
+  "homepage": "https://github.com/SebastianUdden/Winter-Games-BackEnd#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5",
+    "open": "0.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
 }

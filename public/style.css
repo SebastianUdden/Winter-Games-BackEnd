@@ -1,0 +1,28 @@
+body {
+    background-color: #424242;
+    color: #d6d6d6;    
+    font-size: 30px;
+    padding: 30px;
+}
+
+section {
+    margin-left: 20%;
+    margin-right: 20%;    
+    padding: 80px;
+    background-color: #555555;
+    border-radius: 20px;
+}
+
+.listing {
+    margin-bottom: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    background-color: #696969;
+    width: 80%;
+    padding: 50px;
+}
+ul {
+    list-style-type: none;
+    text-align: left;
+}
