@@ -75,8 +75,8 @@ app.get('/users', function(req, res) {
         res.send(users);
     });
 });
-app.get('/users/:username', function(req, res) {    
-    User.findOne({ userName: req.params.username}, function(err, user) {
+app.get('/users/:id', function(req, res) {    
+    User.findOne({ id: req.params.id}, function(err, user) {
         if (err) { res.send(err); }
         res.json(user);
     });
@@ -90,20 +90,20 @@ app.post('/users', function(req, res) {
     });
 });
 
-app.put('/users/:username', function(req, res) {
-    User.findOneAndUpdate({ userName: req.params.username },  req.body, {new: true}, function(err, user) {
+app.put('/users/:id', function(req, res) {
+    User.findOneAndUpdate({ id: req.params.id },  req.body, {new: true}, function(err, user) {
         if (err) { res.send(err); }
         res.json(user);
         console.log(user);
     });
 });
 
-app.delete('/users/:username', function(req, res) {
+app.delete('/users/:id', function(req, res) {
     User.remove({
-        userName: req.params.username
+        id: req.params.id
     }, function(err, task) {
     if (err) { res.send(err); }
-        res.json({ message: 'User successfully deleted' });
+        res.json({ message: 'User ' + req.params.id + ' successfully deleted' });
     });
 });
 
