@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-	"serve": "nodemon app.js",
+    "serve": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +21,9 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.5",
+    "morgan": "^1.9.0",
     "open": "0.0.5"
   },
   "devDependencies": {
