@@ -52,7 +52,8 @@ var userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     score: { type: Number },
     level: { type: String },
-    current: { type: Boolean }
+    current: { type: Boolean },
+    admin: { type: Boolean }
 });
 var User = mongoose.model('User', userSchema);
 
