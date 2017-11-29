@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // app.use(logger);
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", 'http://localhost:4200'); //<-- you can change this with a specific url like http://localhost:4200
+    res.header("Access-Control-Allow-Origin", 'https://sebastianudden.github.io/Winter-Games'); //<-- you can change this with a specific url like http://localhost:4200
     res.header("Access-Control-Allow-Credentials", true);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
