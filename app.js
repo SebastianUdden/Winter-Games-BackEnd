@@ -122,7 +122,7 @@ apiRoutes.delete('/users/:username', function(req, res) {
         username: req.params.username
     }, function(err, task) {
     if (err) { res.send(err); }
-        res.json({ message: 'User ' + req.params.id + ' successfully deleted' });
+        res.json({ message: 'User ' + req.params.username + ' successfully deleted' });
     });
 });
 
