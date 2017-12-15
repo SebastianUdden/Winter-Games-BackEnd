@@ -54,6 +54,7 @@ var userSchema = mongoose.Schema({
     score: { type: Number },
     wallet: { type: Number },
     playthroughs: { type: Number },
+    attributes: { type: Array },
     level: { type: String },
     current: { type: Boolean },
     admin: { type: Boolean }
