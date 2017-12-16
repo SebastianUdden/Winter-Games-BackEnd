@@ -10,10 +10,8 @@ var app = express();
 var apiRoutes = express.Router(); 
 
 var bodyParser = require('body-parser');
-// var logger = require('./logger');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(logger);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*'); //<-- you can change this with a specific url like https://sebastianudden.github.io/Winter-Games or http://localhost:4200
@@ -62,13 +60,25 @@ var userSchema = mongoose.Schema({
 });
 var User = mongoose.model('User', userSchema);
 
+var attributeSchema = mongoose.Schema({
+    id: { type: Number },
+    name: { type: String, required: true, unique: true },
+    description: { type: String, required: true },
+    usage: { type: String, required: true },
+    price: { type: Number, required: true },
+    color: { type: String },
+    img: { type: String },
+    owned: { type: Boolean },
+    ownedBy: { type: String }
+});
+var Attribute = mongoose.model('Attribute', attributeSchema);
+
 User.find(function (err, users) {
     if (err) return console.error(err);
     users.forEach(user => {
         console.log(user.username + ', ' + user.score);
         console.log(user);
     });
-    // console.log(users);
 });
 
 
@@ -87,8 +97,8 @@ User.find(function (err, users) {
 var morgan      = require('morgan');
 app.use(morgan('dev'));
 
-//////////////
-// API Calls
+///////////////////
+// API Calls User
 ////////////////////////////////////////////////////////////////////////////////
 apiRoutes.get('/', function(req, res) {    
     res.redirect('/users');
@@ -127,6 +137,44 @@ apiRoutes.delete('/users/:username', function(req, res) {
     }, function(err, task) {
     if (err) { res.send(err); }
         res.json({ message: 'User ' + req.params.username + ' successfully deleted' });
+    });
+});
+
+////////////////////////
+// API Calls Attribute
+////////////////////////////////////////////////////////////////////////////////
+apiRoutes.get('/attributes', function(req, res) {    
+    Attribute.find(function (err, attributes) {
+        if (err) { return res.send(err); }
+        res.send(attributes);
+    });
+});
+apiRoutes.get('/attributes/:name', function(req, res) {    
+    Attribute.findOne({ name: req.params.name}, function(err, attribute) {
+        if (err) { res.send(err); }
+        res.json(attribute);
+    });
+});
+apiRoutes.post('/attributes', function(req, res) {
+    Attribute.create(req.body, function(err, attribute) {
+        if (err) { res.send(err); }
+        res.json(attribute);
+        console.log(attribute);
+    });
+});
+apiRoutes.put('/attributes/:name', function(req, res) {
+    Attribute.findOneAndUpdate({ name: req.params.name }, { $set: req.body }, {new: true}, function(err, attribute) {
+        if (err) { res.send(err); }
+        res.json(attribute);
+        console.log(attribute);
+    });
+});
+apiRoutes.delete('/attributes/:name', function(req, res) {
+    Attribute.remove({
+        name: req.params.name
+    }, function(err, task) {
+    if (err) { res.send(err); }
+        res.json({ message: 'Attribute ' + req.params.name + ' successfully deleted' });
     });
 });
 
