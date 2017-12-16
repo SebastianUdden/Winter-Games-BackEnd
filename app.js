@@ -55,10 +55,10 @@ var userSchema = mongoose.Schema({
     wallet: { type: Number },
     playthroughs: { type: Number },
     attributes: { type: Array },
-    latestLeech: { type: Date },
     level: { type: String },
     current: { type: Boolean },
-    admin: { type: Boolean }
+    admin: { type: Boolean },
+    latestLeech: { type: Date }
 });
 var User = mongoose.model('User', userSchema);
 
