@@ -55,6 +55,7 @@ var userSchema = mongoose.Schema({
     wallet: { type: Number },
     playthroughs: { type: Number },
     attributes: { type: Array },
+    latestLeech: { type: Date },
     level: { type: String },
     current: { type: Boolean },
     admin: { type: Boolean }
