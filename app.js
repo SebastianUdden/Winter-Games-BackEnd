@@ -58,7 +58,7 @@ var userSchema = mongoose.Schema({
     level: { type: String },
     current: { type: Boolean },
     admin: { type: Boolean },
-    latestLeech: { type: Date }
+    nextLeech: { type: number }
 });
 var User = mongoose.model('User', userSchema);
 
