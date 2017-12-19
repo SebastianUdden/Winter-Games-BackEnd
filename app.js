@@ -56,7 +56,10 @@ var userSchema = mongoose.Schema({
     level: { type: String },
     current: { type: Boolean },
     admin: { type: Boolean },
-    nextLeech: { type: Number }
+    nextLeech: { type: Number },
+    leechGain: { type: Number },
+    leechLoss: { type: Number },
+    leechers: { type: Array }
 });
 var User = mongoose.model('User', userSchema);
 
@@ -125,6 +128,7 @@ apiRoutes.post('/users', function(req, res) {
     });
 });
 apiRoutes.put('/users/:username', function(req, res) {
+    console.log(req.params.leechers);
     User.findOneAndUpdate({ username: req.params.username }, { $set: req.body }, {new: true}, function(err, user) {
         if (err) { res.send(err); }
         res.json(user);
